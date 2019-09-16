@@ -1,0 +1,37 @@
+version: '2'
+services:
+  nginx:
+    image: registry.cn-hangzhou.aliyuncs.com/linsh_components/nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/docker/conf/nginx:/conf:ro
+      - /opt/docker/data/web:/data/web:ro
+      - /opt/static:/data/static
+  mysql:
+    image: registry.cn-hangzhou.aliyuncs.com/linsh_components/mysql:5.7.14
+    environment:
+      - MYSQL_ROOT_PASSWORD=GbrM_qFX.w91cYXFLtKj9
+      - MYSQL_USER=lins_sun
+      - MYSQL_PASSWORD=GahV.iJRr]su86Gfpxsf2
+      - MYSQL_DATABASE=sun
+    ports:
+      - 3306:3306
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/docker/conf/mysql:/conf:ro
+      - /opt/docker/data/mysql:/data
+  rest-server:
+    image: registry.cn-hangzhou.aliyuncs.com/linsh_sun/rest-server:1.0.0
+    mem_limit: 2G
+    environment:
+      - MYSQL_SERVER=mysql:3306
+      - MYSQL_ROOT_PASSWORD=GbrM_qFX.w91cYXFLtKj9
+      - MYSQL_USER_OF_SUN=lins_sun
+      - MYSQL_PASSWORD_OF_SUN=GahV.iJRr]su826Gfpxsf
+      - CATEGORY_CACHE_EXPIRE=10
+    ports:
+      - 9729:9729
+    volumes:
+      - /opt/static:/opt/static
