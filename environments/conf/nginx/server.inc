@@ -9,10 +9,10 @@ server {
         alias /data/static/image/;
     }
 
-    location /sun-console/ {
+    location /console/ {
         try_files $uri $uri/ @router;
         index  index.html index.htm;
-        alias /data/web/sun_console/;
+        alias /data/web/console/;
     }
 
     location /meizi/ {
