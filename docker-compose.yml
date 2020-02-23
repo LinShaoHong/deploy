@@ -35,3 +35,11 @@ services:
       - 9729:9729
     volumes:
       - /opt/static:/opt/static
+  php-apache:
+    image: registry.cn-hangzhou.aliyuncs.com/linsh_components/php-apache:7.2
+    environment:
+      - APACHE_DOCUMENT_ROOT=/opt/docker/apache/root
+    volumes:
+      - /Users/lins/apache/doc:/opt/docker/apache/root
+    ports:
+      - 8080:80
