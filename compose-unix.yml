@@ -1,0 +1,45 @@
+version: '2'
+services:
+  nginx:
+    image: registry.cn-hangzhou.aliyuncs.com/linsh_components/nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/docker/nginx/conf:/conf:ro
+      - /opt/docker/nginx/dist:/dist
+      - /opt/docker/nginx/data:/data
+  mysql:
+    image: registry.cn-hangzhou.aliyuncs.com/linsh_components/mysql:5.7.14
+    environment:
+      - MYSQL_ROOT_PASSWORD=GbrM_qFX.w91cYXFLtKj9
+      - MYSQL_USER=lins_sun
+      - MYSQL_PASSWORD=GahV.iJRr]su86Gfpxsf2
+      - MYSQL_DATABASE=sun
+    ports:
+      - "3307:3306"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/docker/mysql/conf:/conf:ro
+      - /opt/docker/mysql/data:/data
+  qm-server:
+    image: registry.cn-hangzhou.aliyuncs.com/linsh_sun/qm-server:20220811-1.0.0
+    mem_limit: 2G
+    environment:
+      - MYSQL_SERVER=mysql:3306
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER_OF_QM=sun
+      - MYSQL_PASSWORD_OF_QM=sun
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=admin123
+      - RETRIEVE_PASSWORD_KEY=abcd123
+      - SERVER_HTTP_DOMAIN=http://localhost:1379/#/user/changePwd
+      - IMAGE_STORE_DIR=/opt/data
+      - BASE64_SECRET_KEY=1234567890
+      - PROMOTION_TREATMENT=北上广深资源 https://xfangirl.com
+      - GMAIL_USERNAME=xfanggirl2@gmail.com
+      - GMAIL_PASSWORD=cjunbmlztfuribvh
+    ports:
+      - "9729:9729"
+    volumes:
+      - /opt/docker/qm-server/data:/opt/data
