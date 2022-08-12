@@ -40,6 +40,6 @@ services:
       - GMAIL_USERNAME=xfanggirl2@gmail.com
       - GMAIL_PASSWORD=cjunbmlztfuribvh
     ports:
-      - "9729:9729"
+      - "9727:9727"
     volumes:
       - /opt/docker/nginx/data:/opt/data

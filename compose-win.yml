@@ -6,6 +6,7 @@ services:
       - '80:80'
     volumes:
       - 'D:\docker\nginx\conf:/conf:ro'
+      - 'D:\docker\nginx\dist:/dist'
       - 'D:\docker\nginx\data:/data'
   mysql:
     image: registry.cn-hangzhou.aliyuncs.com/linsh_components/mysql:5.7.14
@@ -37,6 +38,6 @@ services:
       - GMAIL_USERNAME=xfanggirl2@gmail.com
       - GMAIL_PASSWORD=cjunbmlztfuribvh
     ports:
-      - '9729:9729'
+      - '9727:9727'
     volumes:
       - 'D:\docker\nginx\data:/opt/data'

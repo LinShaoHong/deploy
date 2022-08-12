@@ -2,30 +2,30 @@ resolver nameserver valid=10s;
 
 server {
     listen       80;
-    server_name  localhost;
+    server_name  www.xfangirl.com;
 
-    location /image/ {
-        add_header Cache-Control no-cache;
-        alias /data/static/image/;
-    }
-
-    location /console/ {
-        try_files $uri $uri/ @router;
+    location / {
+        root /dist/qm;
+        try_files $uri /index.html;
         index  index.html index.htm;
-        alias /data/web/console/;
     }
 
-    location /meizi/ {
-        try_files $uri $uri/ @router;
+    location /admin/ {
+        root /dist/qm-admin;
+        try_files $uri /index.html;
         index  index.html index.htm;
-        alias /data/web/meizi/;
-    }
-
-    location @router {
-        rewrite ^.*$ /index.html last;
     }
 
     location /api/ {
-        proxy_pass "http://rest-server:9729";
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header REMOTE-HOST $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass "http://qm-server:9727/api/";
+    }
+
+    location /image/ {
+        alias /data/media/images/;
+        autoindex on;
     }
 }
