@@ -12,9 +12,9 @@ services:
   mysql:
     image: registry.cn-hangzhou.aliyuncs.com/linsh_components/mysql:5.7.14
     environment:
-      - MYSQL_ROOT_PASSWORD=GbrM_qFX.w91cYXFLtKj9
-      - MYSQL_USER=lins_sun
-      - MYSQL_PASSWORD=GahV.iJRr]su86Gfpxsf2
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=sun
+      - MYSQL_PASSWORD=sun
       - MYSQL_DATABASE=sun
     ports:
       - "3307:3306"
