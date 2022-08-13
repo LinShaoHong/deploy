@@ -20,7 +20,6 @@ services:
       - "3307:3306"
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /opt/docker/mysql/conf:/conf:ro
       - /opt/docker/mysql/data:/data
   qm-server:
     image: registry.cn-hangzhou.aliyuncs.com/linsh_sun/qm-server:20220811-1.0.0

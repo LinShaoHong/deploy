@@ -18,7 +18,6 @@ services:
     ports:
       - '3307:3306'
     volumes:
-      - 'D:\docker\mysql\conf:/conf:ro'
       - 'D:\docker\mysql\data:/data'
   qm-server:
     image: registry.cn-hangzhou.aliyuncs.com/linsh_sun/qm-server:20220811-1.0.0
