@@ -6,7 +6,7 @@ services:
       - "80:80"
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /opt/docker/nginx/conf:/conf:ro
+      - /opt/docker/nginx/conf:/conf
       - /opt/docker/nginx/dist:/dist
       - /opt/docker/nginx/data:/data
   mysql:

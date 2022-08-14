@@ -5,7 +5,7 @@ services:
     ports:
       - '80:80'
     volumes:
-      - 'D:\docker\nginx\conf:/conf:ro'
+      - 'D:\docker\nginx\conf:/conf'
       - 'D:\docker\nginx\dist:/dist'
       - 'D:\docker\nginx\data:/data'
   mysql:
