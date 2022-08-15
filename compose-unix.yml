@@ -34,7 +34,7 @@ services:
       - RETRIEVE_PASSWORD_KEY=abcd123
       - SERVER_HTTP_DOMAIN=http://localhost:1379/#/user/changePwd
       - IMAGE_STORE_DIR=/opt/data/media
-      - BASE64_SECRET_KEY=1234567890
+      - BASE64_SECRET_KEY=c29tZSBzdHJpbmcy
       - PROMOTION_TREATMENT=北上广深资源 https://xfangirl.com
       - GMAIL_USERNAME=xfanggirl2@gmail.com
       - GMAIL_PASSWORD=cjunbmlztfuribvh
