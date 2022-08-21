@@ -33,7 +33,7 @@ services:
       - ADMIN_PASSWORD=admin123
       - RETRIEVE_PASSWORD_KEY=abcd123
       - SERVER_HTTP_DOMAIN=http://localhost:1379/#/user/changePwd
-      - IMAGE_STORE_DIR=/opt/data/media
+      - IMAGE_STORE_DIR=/opt/data/media/qm/image
       - BASE64_SECRET_KEY=c29tZSBzdHJpbmcy
       - PROMOTION_TREATMENT=北上广深资源 https://xfangirl.com
       - GMAIL_USERNAME=xfanggirl2@gmail.com
